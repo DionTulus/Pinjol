@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
-  <div class="btn">
+      <div class="btn">
         <span class="fas fa-bars"></span>
     </div>
     <nav class="sidebar">
@@ -27,32 +27,18 @@
                     <span class="fas fa-caret-down first"></span>
                 </a>
                 <ul class="feat-show">
-                    <li><a href="uang/peminjaman.php">Loan</a></li>
-                    <li><a href="uang/pembayaran.php">Payment</a></li>
+                    <li><a href="peminjaman.php">Loan</a></li>
+                    <li><a href="pembayaran.php">Payment</a></li>
                 </ul>
             </li>
             <li><a href="#">Feedback</a></li>
         </ul>
     </nav>
-    <script>
-        $('.btn').click(function () {
-            $(this).toggleClass("click");
-            $('.sidebar').toggleClass("show");
-        });
-        $('.feat-btn').click(function () {
-            $('nav ul .feat-show').toggleClass("show");
-            $('nav ul .first').toggleClass("rotate");
-        });
-        $('.serv-btn').click(function () {
-            $('nav ul .serv-show').toggleClass("show1");
-            $('nav ul .second').toggleClass("rotate");
-        });
-        $('nav ul li').click(function () {
-            $(this).addClass("active").siblings().removeClass("active");
-        });
-    </script>
+    
+  <div class="content">
     <!-- kalkulator pinjol -->
-  <div class="pinjamdulu">
+    <div class="peminjaman_uang">
+      <div class="pinjamdulu">
       <div class="loan-summary">
             <h2>Ringkasan Peminjaman</h2>
             <div class="form-group">
@@ -108,5 +94,34 @@
         </div>
       </div>
     </div>
+    </div>
+  </div>
+
+        <script>
+        $('.btn').click(function () {
+            $(this).toggleClass("click");
+            $('.sidebar').toggleClass("show");
+        });
+        $('.feat-btn').click(function () {
+            $('nav ul .feat-show').toggleClass("show");
+            $('nav ul .first').toggleClass("rotate");
+        });
+        $('.serv-btn').click(function () {
+            $('nav ul .serv-show').toggleClass("show1");
+            $('nav ul .second').toggleClass("rotate");
+        });
+        $('nav ul li').click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="../js/bayar.js"></script>
+
+<script src="../js/script.js"></script>
+
+
+<script src="https://unpkg.com/scrollreveal@4%22%3E></script>
 </body>
 </html>
