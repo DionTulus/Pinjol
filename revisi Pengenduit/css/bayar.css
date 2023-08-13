@@ -1,0 +1,263 @@
+
+.tombol-bayar{
+    display: flex;
+    justify-content: space-around;
+}
+
+.list_pembayaran{
+    display: flex;
+}
+
+.cont_principal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.cont_menu {
+    display: flex;
+    width: 320px;
+    flex-direction: column;
+}
+
+.cont_titulo_menu {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    background-color: #4f7df5;
+    box-shadow: 0px 7px 30px -12px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+}
+
+.cont_icon_menu {
+    display: flex;
+    float: right;
+    margin-left: 20%;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont_icon_menu>img {
+    width: 32px;
+    z-index: 1;
+    position: relative;
+}
+
+.cont_titulo {
+    position: relative;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #fff;
+}
+
+.cont_circle_1 {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background-color: #fff;
+    opacity: 0.3;
+    z-index: 0;
+    border-radius: 50%;
+    animation: animation_circle_1 3s infinite;
+    animation-direction: alternate;
+    transform: scale(0);
+}
+
+.cont_circle_2 {
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    background-color: #fff;
+    opacity: 0.2;
+    z-index: 0;
+    border-radius: 50%;
+    animation: animation_circle_1 3s infinite;
+    animation-direction: alternate;
+    animation-delay: 0.5s;
+    transform: scale(0);
+}
+
+.cont_circle_3 {
+    position: absolute;
+    width: 192px;
+    height: 192px;
+    background-color: #fff;
+    opacity: 0.1;
+    z-index: 0;
+    border-radius: 50%;
+    animation: animation_circle_1 3s infinite;
+    animation-direction: alternate;
+    animation-delay: 1s;
+    transform: scale(0);
+}
+
+.cont_circle_4 {
+    position: absolute;
+    width: 256px;
+    height: 256px;
+    background-color: #fff;
+    opacity: 0.1;
+    z-index: 0;
+    border-radius: 50%;
+    animation: animation_circle_1 3s infinite;
+    animation-direction: alternate;
+    animation-delay: 1.5s;
+    transform: scale(0);
+}
+
+@-webkit-keyframes animation_circle_1 {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@-o-keyframes animation_circle_1 {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes animation_circle_1 {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes animation_circle_1 {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+.cont_drobpdown_menu {
+    position: relative;
+    display: flex;
+    float: left;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 2px 20px -2px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+
+
+.cont_drobpdown_menu ul>li {
+    list-style: none;
+    margin-left: -3px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #eee;
+    display: flex;
+    transition: all 500ms;
+}
+
+.cont_drobpdown_menu ul>li img{
+    margin-left: 20px;
+}
+
+.cont_drobpdown_menu ul>li p{
+    margin-left: 30px;
+    font-size: 18px;
+}
+
+.cont_drobpdown_menu ul>li:hover {
+    border-left: 5px solid #6992fe;
+}
+
+.cont_drobpdown_menu ul>li:hover>a {
+    color: #6992fe;
+}
+
+.cont_drobpdown_menu ul>li:nth-child(2) {
+    border: none;
+}
+
+.cont_drobpdown_menu ul>li> p {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: #c4d0de;
+}
+
+.cont_drobpdown_menu ul>li>hr {
+    width: 290px;
+    height: 0px;
+    color: #123455;
+    background-color: #123455;
+    border: 1px solid #eee;
+}
+
+.cont_icon_trg {
+    position: relative;
+    float: left;
+    align-self: flex-start;
+    margin-bottom: -30px;
+    z-index: 1;
+    left: 10px;
+    transform: translate(0px, 10px);
+    transition: all 0.5s;
+}
+
+.cont_icon_trg2 {
+    position: relative;
+    float: left;
+    align-self: flex-start;
+    margin-bottom: -30px;
+    z-index: 1;
+    left: 10px;
+    transform: translate(0px, 10px);
+    transition: all 0.5s;
+}
+
+.disable {
+    cursor: default;
+    transition: all 0.5s;
+    opacity: 0;
+    transform: translate(0px, 10px);
+}
+
+.disable>ul>li {
+    cursor: default;
+    transform: translate(0px, 10px);
+    opacity: 0;
+}
+
+.active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+}
+
+.active>ul>li {
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+#btn-bayar {
+    position: relative;
+    z-index: 5;
+}
+
+/* button 2 */
