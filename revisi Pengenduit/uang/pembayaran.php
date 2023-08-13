@@ -21,14 +21,14 @@
             Pengen Duit
         </div>
         <ul>
-            <li class="active"><a href="#home">Dashboard</a></li>
+            <li class="active"><a href="../user_page.php">Dashboard</a></li>
             <li>
                 <a href="#" class="feat-btn">Borrow
                     <span class="fas fa-caret-down first"></span>
                 </a>
                 <ul class="feat-show">
-                    <li><a href="uang/peminjaman.php">Loan</a></li>
-                    <li><a href="uang/pembayaran.php">Payment</a></li>
+                    <li><a href="peminjaman.php">Loan</a></li>
+                    <li><a href="pembayaran.php">Payment</a></li>
                 </ul>
             </li>
             <li><a href="#">Feedback</a></li>
@@ -239,5 +239,14 @@
     </div>
     <!-- end of tombol -->
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="../js/bayar.js"></script>
+
+<script src="../js/script.js"></script>
+
+<script src="https://unpkg.com/scrollreveal@4%22%3E></script>
 </body>
 </html>
