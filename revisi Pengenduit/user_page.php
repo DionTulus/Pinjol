@@ -70,16 +70,5 @@ if(!isset($_SESSION['user_name'])){
     </div>
   </div>
 
-
-    <!-- Add this script tag to include JQuery -->
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script src="../Pinjol/js/bayar.js"></script>
-
-<script src="../Pinjol/js/script.js"></script>
-
-<script src="https://unpkg.com/scrollreveal@4%22%3E></script>
-
 </body>
 </html>
