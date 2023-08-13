@@ -1,165 +1,163 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    user-select: none;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+.loan-calculator {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
 }
 
-.btn {
-    position: relative;
-    top: 15px;
-    left: 45px;
-    height: 45px;
-    width: 45px;
-    text-align: center;
-    background: #1b1b1b;
-    border-radius: 3px;
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+button:hover{
+    background-color: #218538;
+}
+
+button {
+    background-color: #30c152;
+    width: 140px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: left 0.4s ease;
+    font-size: 16px;
+    z-index: 3;
+    transition: background-color 0.3s ease;
 }
 
-.btn.click {
-    left: 247px;
+
+/* ... Kode CSS sebelumnya ... */
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.btn span {
-    color: white;
-    font-size: 28px;
-    line-height: 45px;
+.payment-icon {
+    margin: 0 10px;
+    cursor: pointer;
 }
 
-.btn.click span:before {
-    content: '\f00d';
-}
-
-.sidebar {
-    z-index: 100;
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    left: -250px;
-    background: #1b1b1b;
-    transition: left 0.4s ease;
-}
-
-.sidebar.show {
-    left: 0px;
-}
-
-.sidebar .text {
-    color: white;
-    font-size: 25px;
-    font-weight: 600;
-    line-height: 65px;
-    text-align: center;
-    background: #1e1e1e;
-    letter-spacing: 1px;
-}
-
-nav{
-    top: 0px;
-}
-
-nav ul {
-    background: #1b1b1b;
-    height: 100%;
-    width: 100%;
-    list-style: none;
-}
-
-nav ul li {
-    line-height: 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-nav ul li:last-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-nav ul li a {
-    position: relative;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding-left: 40px;
-    font-weight: 500;
-    display: block;
-    width: 100%;
-    border-left: 3px solid transparent;
-}
-
-nav ul li.active a {
-    color: cyan;
-    background: #1e1e1e;
-    border-left-color: cyan;
-}
-
-nav ul li a:hover {
-    background: #1e1e1e;
-}
-
-nav ul ul {
-    position: static;
+#input-container {
     display: none;
+    align-items: center;
+    justify-content: center;
 }
 
-nav ul .feat-show.show {
-    display: block;
-}
-
-nav ul .serv-show.show1 {
-    display: block;
-}
-
-nav ul ul li {
-    line-height: 42px;
-    border-top: none;
-}
-
-nav ul ul li a {
-    font-size: 17px;
-    color: #e6e6e6;
-    padding-left: 80px;
-}
-
-nav ul li.active ul li a {
-    color: #e6e6e6;
-    background: #1b1b1b;
-    border-left-color: transparent;
-}
-
-nav ul ul li a:hover {
-    color: cyan !important;
-    background: #1e1e1e !important;
-}
-
-nav ul li a span {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    font-size: 22px;
-    transition: transform 0.4s;
-}
-
-nav ul li a span.rotate {
-    transform: translateY(-50%) rotate(-180deg);
-}
-
-.content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #202020;
-    z-index: -1;
+#payment-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: bold;
     text-align: center;
 }
 
-.content .header {
-    font-size: 45px;
-    font-weight: 600;
+#btn-selesai {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+
+/* total peminjaman */
+
+/* CSS untuk kotak total peminjaman dan tombol bayar */
+.loan-summary {
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+.loan-summary h2 {
+    margin-bottom: 10px;
+}
+
+.form-group1{
+    background-color: #BAD7E9;
+    padding: 10px;
+}
+.form-group2{
+    background-color: #BAD7E9;
+    padding: 10px;
+}
+.form-group3{
+    background-color: #BAD7E9;
+    padding: 10px;
+}
+
+.loan-summary .form-group {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.loan-summary .form-group label {
+    margin-right: 10px;
+}
+
+.loan-summary input {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    width: 120px;
+    background: transparent;
+    outline: none;
+}
+
+.loan-summary #btn-bayar {
+    background-color: #30c152;
+    margin-left: 17px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    width: 140px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.loan-summary #btn-bayar:hover {
+    background-color: #218538;
+}
+
+.loan-summary #btn-bayar:focus {
+    outline: none;
+}
+
+.hoverable-dropdown {
+    position: relative;
+}
+
+.loan-summary2{
+    margin-bottom: 8%;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+}
+.loan-summary2 label{
+    text-align: center;
+    font-size: larger;
+}
+
+.loan-summary2 input[type=text] {
+    text-align: center;
 }
