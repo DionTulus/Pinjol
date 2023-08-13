@@ -9,7 +9,7 @@
 }
 
 .btn {
-    position: absolute;
+    position: relative;
     top: 15px;
     left: 45px;
     height: 45px;
@@ -57,6 +57,10 @@
     text-align: center;
     background: #1e1e1e;
     letter-spacing: 1px;
+}
+
+nav{
+    top: 0px;
 }
 
 nav ul {
@@ -158,9 +162,4 @@ nav ul li a span.rotate {
 .content .header {
     font-size: 45px;
     font-weight: 600;
-}
-
-.content p {
-    font-size: 30px;
-    font-weight: 500;
 }
