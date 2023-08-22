@@ -1,25 +1,12 @@
-<?php
-
-@include 'config.php';
-
-session_start();
-
-if(!isset($_SESSION['user_name'])){
-   header('location:login_form.php');
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8">
     <title>Pengen Duit</title>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-        <link rel="stylesheet" href="css/bayar.css">
     <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="css/pinjam.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="../fontawesome/css/all.css">
 </head>
@@ -33,7 +20,7 @@ if(!isset($_SESSION['user_name'])){
             Pengen Duit
         </div>
         <ul>
-            <li class="active"><a href="#home">Dashboard</a></li>
+            <li class="active"><a href="#dasboard">Dashboard</a></li>
             <li>
                 <a href="#" class="feat-btn">Borrow
                     <span class="fas fa-caret-down first"></span>
@@ -43,32 +30,56 @@ if(!isset($_SESSION['user_name'])){
                     <li><a href="uang/pembayaran.php">Payment</a></li>
                 </ul>
             </li>
-            <li><a href="#">Feedback</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li><a href="#user_profile">Loan History</a></li>
         </ul>
     </nav>
-    <script>
-        $('.btn').click(function () {
-            $(this).toggleClass("click");
-            $('.sidebar').toggleClass("show");
-        });
-        $('.feat-btn').click(function () {
-            $('nav ul .feat-show').toggleClass("show");
-            $('nav ul .first').toggleClass("rotate");
-        });
-        $('.serv-btn').click(function () {
-            $('nav ul .serv-show').toggleClass("show1");
-            $('nav ul .second').toggleClass("rotate");
-        });
-        $('nav ul li').click(function () {
-            $(this).addClass("active").siblings().removeClass("active");
-        });
-    </script>
-  <!-- home -->
-  <div class="content" id="home">
-    <div class="user">
-        <h1>Hello <span><?php echo $_SESSION['user_name'] ?></span></h1>
+
+  <div class="content" id="dasboard">
+    <!-- home -->
+    <div id="home">
+        <div class="user">
+            <h1>Ready to fulfill your dreams?</h1>
+            <h3>Don't let capital get in the <br> way of your dreams.</h3>
+            <button class="borrow_btn">Borrow Now</button>
+        </div>
     </div>
+  <!-- Feedback -->
+  <div class="feedback" id="feedback">
+    <div class="container">  
+  <form id="contact" action="" method="post">
+    <h3>Contact</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+ 
+  
+</div>
+        </div>
+    </div>
+
   </div>
+  </div>
+
+  <script src="js/script.js" ></script>
+  <script src="js/feedback.js" ></script>
 
 </body>
 </html>

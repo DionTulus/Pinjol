@@ -1,10 +1,20 @@
+<?php
+
+@include 'config.php';
+
+session_start();
+
+if(!isset($_SESSION['user_name'])){
+   header('location:../login_form.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-        <link rel="stylesheet" href="../css/bayar.css">
+
     <link rel="stylesheet" href="../css/css.css">
     <link rel="stylesheet" href="../css/pinjam.css">
     <link rel="stylesheet" href="../fontawesome/css/all.css">
@@ -13,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
-      <div class="btn">
+    <div class="btn">
         <span class="fas fa-bars"></span>
     </div>
     <nav class="sidebar">
@@ -31,21 +41,18 @@
                     <li><a href="pembayaran.php">Payment</a></li>
                 </ul>
             </li>
-            <li><a href="#">Feedback</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li><a href="#user_profile">Loan History</a></li>
         </ul>
     </nav>
-    
-  <div class="content">
-    <!-- kalkulator pinjol -->
-    <div class="peminjaman_uang">
-      <div class="pinjamdulu">
-      <div class="loan-summary">
-            <h2>Ringkasan Peminjaman</h2>
-            <div class="form-group">
-                <label for="total-amount">Total Peminjaman:</label>
+
+<div class="peminjaman">
+        <div class="loan-summary">
+            <div class="form-group1">
+                <label for="total-amount"><h3>Uang masuk :</h3></label>
                 <input type="text" id="total-amount" readonly>
             </div>
-            <button onclick = "window.location.href='#bayar';" type="button" id="btn-bayar">Bayar</button>
+            <button onclick = "window.location.href='pembayaran.php';" type="button" id="btn-bayar">Bayar</button>
         </div>
       <div class="loan-calculator">
         <h2>Kotak Peminjaman Uang</h2>
@@ -94,34 +101,12 @@
         </div>
       </div>
     </div>
-    </div>
-  </div>
-
-        <script>
-        $('.btn').click(function () {
-            $(this).toggleClass("click");
-            $('.sidebar').toggleClass("show");
-        });
-        $('.feat-btn').click(function () {
-            $('nav ul .feat-show').toggleClass("show");
-            $('nav ul .first').toggleClass("rotate");
-        });
-        $('.serv-btn').click(function () {
-            $('nav ul .serv-show').toggleClass("show1");
-            $('nav ul .second').toggleClass("rotate");
-        });
-        $('nav ul li').click(function () {
-            $(this).addClass("active").siblings().removeClass("active");
-        });
-    </script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script src="../js/bayar.js"></script>
-
-<script src="../js/script.js"></script>
+</div>
+</div>
+    
+  <script src="../js/script.js" ></script>
+  <script src="../js/bayar.js" ></script>
 
 
-<script src="https://unpkg.com/scrollreveal@4%22%3E></script>
 </body>
 </html>

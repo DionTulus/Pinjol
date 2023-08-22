@@ -1,212 +1,56 @@
-$(document).ready(function() {
-  $(".toggle_btn").click(function() {
-    $(".dropdown_menu").toggle();
+        $('.btn').click(function () {
+            $(this).toggleClass("click");
+            $('.sidebar').toggleClass("show");
+        });
+        $('.feat-btn').click(function () {
+            $('nav ul .feat-show').toggleClass("show");
+            $('nav ul .first').toggleClass("rotate");
+        });
+        $('.serv-btn').click(function () {
+            $('nav ul .serv-show').toggleClass("show1");
+            $('nav ul .second').toggleClass("rotate");
+        });
+        $('nav ul li').click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+
+        $(function() {
+  // init the validator
+  // validator files are included in the download package
+  // otherwise download from http://1000hz.github.io/bootstrap-validator
+
+  $("#contact-form").validator();
+
+  // when the form is submitted
+  $("#contact-form").on("submit", function(e) {
+    // if the validator does not prevent form submit
+    if (!e.isDefaultPrevented()) {
+      var url = "contact.php";
+
+      // FOR CODEPEN DEMO I WILL PROVIDE THE DEMO OUTPUT HERE, download the PHP files from
+      // https://bootstrapious.com/p/how-to-build-a-working-bootstrap-contact-form
+
+      var messageAlert = "alert-success";
+      var messageText =
+        "Your message was sent, thank you. I will get back to you soon.";
+
+      // let's compose Bootstrap alert box HTML
+      var alertBox =
+        '<div class="alert ' +
+        messageAlert +
+        ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+        messageText +
+        "</div>";
+
+      // If we have messageAlert and messageText
+      if (messageAlert && messageText) {
+        // inject the alert to .messages div in our form
+        $("#contact-form").find(".messages").html(alertBox);
+        // empty the form
+        $("#contact-form")[0].reset();
+      }
+
+      return false;
+    }
   });
 });
-
-const nav = document.querySelector(".nav");
-
-// Fungsi untuk mengubah kelas saat melakukan scroll
-window.addEventListener("scroll", function () {
-    if (window.pageYOffset > 0) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
-    }
-});
-
-const loanAmountInput = document.getElementById('loan-amount');
-const loanDurationInput = document.getElementById('loan-duration');
-const monthlyInstallmentInput = document.getElementById('monthly-installment');
-const totalAmountInput = document.getElementById('total-amount');
-const remainingMonthsInput = document.getElementById('remaining-months');
-
-function formatNumber(number) {
-  return new Intl.NumberFormat('id-ID').format(number);
-}
-
-// Fungsi untuk menghitung cicilan per bulan
-function calculateMonthlyInstallment() {
-  const loanAmount = parseInt(loanAmountInput.value, 10);
-  const loanDuration = parseInt(loanDurationInput.value, 10);
-
-  if (isNaN(loanAmount) || isNaN(loanDuration) || loanAmount <= 0 || loanDuration < 1) {
-    monthlyInstallmentInput.value = 'Masukkan jumlah dan lama peminjaman yang valid.';
-    return;
-  }
-
-  const monthlyInterestRate = 0.05; // 2% per bulan (misalnya)
-  const totalInterest = loanAmount * monthlyInterestRate * loanDuration;
-  const totalAmountToRepay = loanAmount + totalInterest;
-  const monthlyInstallment = totalAmountToRepay / loanDuration;
-
-  monthlyInstallmentInput.value = `Rp ${formatNumber(monthlyInstallment.toFixed(2))}`;
-}
-
-loanAmountInput.addEventListener('input', calculateMonthlyInstallment);
-loanDurationInput.addEventListener('input', calculateMonthlyInstallment);
-
-// Fungsi untuk menampilkan input nomor pembayaran saat mengklik ikon pembayaran
-document.getElementById('bank-icon').addEventListener('click', function() {
-  document.getElementById('payment-input').placeholder = 'Masukkan nomor bank';
-  document.getElementById('input-container').style.display = 'flex';
-});
-
-document.getElementById('gopay-icon').addEventListener('click', function() {
-  document.getElementById('payment-input').placeholder = 'Masukkan nomor GoPay';
-  document.getElementById('input-container').style.display = 'flex';
-});
-
-document.getElementById('dana-icon').addEventListener('click', function() {
-  document.getElementById('payment-input').placeholder = 'Masukkan nomor Dana';
-  document.getElementById('input-container').style.display = 'flex';
-});
-
-document.getElementById('paypal-icon').addEventListener('click', function() {
-  document.getElementById('payment-input').placeholder = 'Masukkan nomor PayPal';
-  document.getElementById('input-container').style.display = 'flex';
-});
-
-// Fungsi untuk menyembunyikan input nomor pembayaran saat mengklik tombol "Selesai"
-document.getElementById('btn-selesai').addEventListener('click', function() {
-  const paymentInputValue = document.getElementById('payment-input').value;
-  if (paymentInputValue === '') {
-    document.getElementById('payment-input').style.borderColor = 'red';
-  } else {
-    document.getElementById('payment-input').style.borderColor = '';
-    document.getElementById('input-container').style.display = 'none';
-  }
-});
-
-// Variabel untuk menyimpan total cicilan per bulan saat ini
-let totalMonthlyInstallment = 0;
-let totalLoanAmount = 0;
-let totalLoanDuration = 0;
-
-// Fungsi untuk menghitung total peminjaman dan menampilkan di kotak ringkasan
-function calculateTotalAmount1() {
-     const loanAmount = parseInt(loanAmountInput.value, 10);
-    const loanDuration = parseInt(loanDurationInput.value, 10);
-
-    if (isNaN(loanAmount) || isNaN(loanDuration) || loanAmount <= 0 || loanDuration < 1) {
-        totalAmountInput.value = '';
-        return;
-    }
-
-    totalLoanAmount += loanAmount;
-    totalAmountInput.value = `Rp ${formatNumber(totalLoanAmount)}`;
-
-    const remainingMonths = calculateRemainingMonths();
-    remainingMonthsInput.value = remainingMonths;
-
-    lastMonth = new Date().getMonth(); // Perbarui bulan terakhir
-
-}
-
-// Fungsi untuk menampilkan alert ketika tombol "Pinjam" diklik tanpa memasukkan nomor pembayaran
-document.getElementById('btn-pinjam').addEventListener('click', function() {
-    const paymentInputValue = document.getElementById('payment-input').value;
-    if (paymentInputValue === '') {
-        alert('Masukkan nomor pembayaran sebelum melakukan peminjaman!');
-    } else {
-        alert('Peminjaman telah sukses!');
-
-        // Peminjaman sukses, tambahkan jumlah peminjaman per bulan ke total peminjaman pertama
-        calculateTotalAmount1();
-
-        // Peminjaman sukses, tambahkan jumlah peminjaman per bulan ke total peminjaman kedua
-        calculateTotalAmount2();
-
-        // Reset nilai input nomor pembayaran
-        document.getElementById('payment-input').value = '';
-
-    lastMonth = new Date().getMonth();
-    
-    // Hitung ulang sisa bulan
-    const remainingMonths = calculateRemainingMonths();
-    remainingMonthsInput.value = remainingMonths;
-    }
-});
-
-// JavaScript untuk tombol "Bayar" (dummy, tidak ada fungsionalitas)
-document.getElementById('btn-bayar').addEventListener('click', function() {
-
-});
-
-// total peminjaman ke 2
-const totalAmountInput2 = document.getElementById('total-amount2');
-
-// Variabel untuk menyimpan total peminjaman saat ini untuk total peminjaman ke 2
-let totalLoanAmount2 = 0;
-
-// Fungsi untuk menghitung total peminjaman yang kedua dan menampilkan di kotak ringkasan 2
-function calculateTotalAmount2() {
-    const loanAmount = parseInt(loanAmountInput.value, 10);
-    const loanDuration = parseInt(loanDurationInput.value, 10);
-
-    if (isNaN(loanAmount) || isNaN(loanDuration) || loanAmount <= 0 || loanDuration < 1) {
-        totalAmountInput2.value = '';
-        return;
-    }
-    
- // Hitung total peminjaman ke 2 berdasarkan nilai loanAmount dan loanDuration
-    // Misalnya, kita menggunakan bunga bulanan 1% sebagai contoh
-    const monthlyInterestRate = 0.05;
-    const totalInterest = loanAmount * monthlyInterestRate * loanDuration;
-    const totalAmountToRepay = loanAmount + totalInterest;
-
-    totalLoanAmount2 += totalAmountToRepay;
-    totalAmountInput2.value = `Rp ${formatNumber(totalLoanAmount2)}`;
-    
-    const remainingMonths = calculateRemainingMonths();
-    remainingMonthsInput.value = remainingMonths;
-
-    // Hitung cicilan per bulan dari total peminjaman ke 2
-    const monthlyInstallment2 = totalLoanAmount2 / loanDuration;
-
-    // Tampilkan hasil cicilan per bulan di input dengan ID monthly-installment2
-    document.getElementById('monthly-installment2').value = `Rp ${formatNumber(monthlyInstallment2.toFixed(2))}`;
-}
-
-
-// Fungsi untuk menghitung sisa bulan peminjaman
-function calculateRemainingMonths() {
-    const loanDuration = parseInt(loanDurationInput.value, 10);
-
-    if (isNaN(loanDuration) || loanDuration <= 0) {
-        return 0;
-    }
-
-    return loanDuration;
-  }
-
-// Fungsi untuk menampilkan input nomor pembayaran saat mengklik ikon pembayaran
-document.getElementById('bank-icon').addEventListener('click', function() {
-  document.getElementById('payment-input').placeholder = 'Masukkan nomor bank';
-  document.getElementById('input-container').style.display = 'flex';
-});
-
-document.getElementById('gopay-icon').addEventListener('click', function() {
-  document.getElementById('payment-input').placeholder = 'Masukkan nomor GoPay';
-  document.getElementById('input-container').style.display = 'flex';
-});
-
-document.getElementById('dana-icon').addEventListener('click', function() {
-  document.getElementById('payment-input').placeholder = 'Masukkan nomor Dana';
-  document.getElementById('input-container').style.display = 'flex';
-});
-
-document.getElementById('paypal-icon').addEventListener('click', function() {
-  document.getElementById('payment-input').placeholder = 'Masukkan nomor PayPal';
-  document.getElementById('input-container').style.display = 'flex';
-});
-
-// Menambahkan event listener untuk setiap input nomor pembayaran di dropdown
-const paymentNumberInputs = document.querySelectorAll('.payment-number-input');
-paymentNumberInputs.forEach(function(input) {
-  input.addEventListener('input', function(event) {
-    const paymentNumberValue = event.target.value;
-    // Lakukan sesuatu dengan nilai nomor pembayaran yang dimasukkan
-  });
-});
-  

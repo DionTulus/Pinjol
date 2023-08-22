@@ -1,9 +1,9 @@
-.loan-calculator {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
-
 
 label {
     display: block;
@@ -16,6 +16,8 @@ button:hover{
 }
 
 button {
+    font-weight: bold;
+    margin: 10px 0 0 0;
     background-color: #30c152;
     width: 140px;
     color: #fff;
@@ -28,136 +30,36 @@ button {
     transition: background-color 0.3s ease;
 }
 
-
-/* ... Kode CSS sebelumnya ... */
-
-.payment-icons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+#home{
+    height: 100vh;
+    background-image: url(../img/bg2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-.payment-icon {
-    margin: 0 10px;
-    cursor: pointer;
+#home .user{
+    font-size: 25px;
+    padding: 22% 0 0 17%;
 }
 
-#input-container {
-    display: none;
-    align-items: center;
-    justify-content: center;
+#home .user h3{
+    color: white;
 }
 
-#payment-input {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
+#home .user h1{
+    color: rgb(0, 159, 212);
 }
 
-#btn-selesai {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 10px;
+@media (max-width: 632px){
+    #home .user {
+            font-size: 20px;
+        }
 }
 
-
-/* total peminjaman */
-
-/* CSS untuk kotak total peminjaman dan tombol bayar */
-.loan-summary {
-    align-items: center;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 20px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    border-radius: 5px;
+.feedback {
+    height: 100vh;
+    padding: 20px 0;
+    font-family: Lato, sans-serif;
 }
 
-.loan-summary h2 {
-    margin-bottom: 10px;
-}
-
-.form-group1{
-    background-color: #BAD7E9;
-    padding: 10px;
-}
-.form-group2{
-    background-color: #BAD7E9;
-    padding: 10px;
-}
-.form-group3{
-    background-color: #BAD7E9;
-    padding: 10px;
-}
-
-.loan-summary .form-group {
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.loan-summary .form-group label {
-    margin-right: 10px;
-}
-
-.loan-summary input {
-    text-align: center;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 5px 10px;
-    width: 120px;
-    background: transparent;
-    outline: none;
-}
-
-.loan-summary #btn-bayar {
-    background-color: #30c152;
-    margin-left: 17px;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    width: 140px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.loan-summary #btn-bayar:hover {
-    background-color: #218538;
-}
-
-.loan-summary #btn-bayar:focus {
-    outline: none;
-}
-
-.hoverable-dropdown {
-    position: relative;
-}
-
-.loan-summary2{
-    margin-bottom: 8%;
-    align-items: center;
-    justify-content: space-evenly;
-    display: flex;
-}
-.loan-summary2 label{
-    text-align: center;
-    font-size: larger;
-}
-
-.loan-summary2 input[type=text] {
-    text-align: center;
-}

@@ -6,6 +6,8 @@ session_start();
 
 if(isset($_POST['submit'])){
 
+   $rname = mysqli_real_escape_string($conn, $_POST['rname']);
+   $NIK = mysqli_real_escape_string($conn, $_POST['NIK']);
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = md5($_POST['password']);
@@ -39,6 +41,7 @@ if(isset($_POST['submit'])){
 };
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,8 +62,8 @@ if(isset($_POST['submit'])){
       <h3>login now</h3>
       <?php
       if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
+         foreach($error as $errorMsg){
+            echo '<span class="error-msg">'.$errorMsg.'</span>';
          };
       };
       ?>

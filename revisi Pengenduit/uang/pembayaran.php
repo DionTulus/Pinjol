@@ -1,3 +1,13 @@
+<?php
+
+@include 'config.php';
+
+session_start();
+
+if(!isset($_SESSION['user_name'])){
+   header('location:../login_form.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +19,7 @@
     <link rel="stylesheet" href="../css/pinjam.css">
     <link rel="stylesheet" href="../fontawesome/css/all.css">
     <link rel="stylesheet" href="../css/sidebar.css">
-            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
@@ -31,26 +41,11 @@
                     <li><a href="pembayaran.php">Payment</a></li>
                 </ul>
             </li>
-            <li><a href="#">Feedback</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li><a href="#user_profile">Loan History</a></li>
         </ul>
     </nav>
-    <script>
-        $('.btn').click(function () {
-            $(this).toggleClass("click");
-            $('.sidebar').toggleClass("show");
-        });
-        $('.feat-btn').click(function () {
-            $('nav ul .feat-show').toggleClass("show");
-            $('nav ul .first').toggleClass("rotate");
-        });
-        $('.serv-btn').click(function () {
-            $('nav ul .serv-show').toggleClass("show1");
-            $('nav ul .second').toggleClass("rotate");
-        });
-        $('nav ul li').click(function () {
-            $(this).addClass("active").siblings().removeClass("active");
-        });
-    </script>
+
 <div class="bayar" id="bayar">
     <div class="loan-summary2">
         <div class="form-group1">
@@ -237,15 +232,9 @@
                 </div>
           </div>
     </div>
-    <!-- end of tombol -->
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script src="../js/bayar.js"></script>
 
 <script src="../js/script.js"></script>
+<script src="../js/bayar.js" ></scr>
 
 <script src="https://unpkg.com/scrollreveal@4%22%3E></script>
 </body>

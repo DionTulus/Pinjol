@@ -9,7 +9,7 @@
 }
 
 .btn {
-    position: relative;
+    position: fixed;
     top: 15px;
     left: 45px;
     height: 45px;
@@ -150,13 +150,9 @@ nav ul li a span.rotate {
 }
 
 .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    align-items: center;
     color: #202020;
     z-index: -1;
-    text-align: center;
 }
 
 .content .header {
